@@ -1,4 +1,4 @@
-package lectures.part2oop
+package exercises.part2oop
 
 object OOBasics extends App {
   val author = new Writer("Nozomi", "Okada", 1987)
