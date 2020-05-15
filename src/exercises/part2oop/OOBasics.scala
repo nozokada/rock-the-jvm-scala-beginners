@@ -7,9 +7,9 @@ object OOBasics extends App {
   println(novel.authorAge)
   println(novel.isWrittenBy(anotherAuthor))
 
-  val counter = new Counter(0)
-  println(counter.increment())
-  println(counter.increment(5))
+  val counter = new Counter
+  counter.increment.print
+  counter.increment.increment.increment.print
 }
 
 class Writer(firstName: String, surName: String, val year: Int) {
@@ -18,15 +18,30 @@ class Writer(firstName: String, surName: String, val year: Int) {
 
 class Novel(name: String, yearOfRelease: Int, author: Writer) {
   def authorAge: Int = yearOfRelease - author.year
-  def isWrittenBy(author: Writer): Boolean = {
-    this.author.fullName() == author.fullName() && this.author.year == author.year
-  }
+  def isWrittenBy(author: Writer): Boolean = this.author == author
   def copy(newYearOfRelease: Int): Novel = new Novel(name, newYearOfRelease, author)
 }
 
-class Counter(var count: Int) {
-  def increment(): Int = { count += 1; count}
-  def decrement(): Int = { count -= 1; count}
-  def increment(amount: Int): Int = { count += amount; count }
-  def decrement(amount: Int): Int = { count -= amount; count }
+class Counter(val count: Int = 0) {
+  def increment: Counter = {
+    println("incrementing")
+    new Counter(count + 1)
+  }
+
+  def decrement: Counter = {
+    println("decrementing")
+    new Counter(count - 1)
+  }
+
+  def increment(amount: Int): Counter = {
+    if (amount <= 0) this
+    else increment.increment(amount + 1)
+  }
+
+  def decrement(amount: Int): Counter = {
+    if (amount <= 0) this
+    else decrement.decrement(amount - 1)
+  }
+
+  def print: Unit = println(count)
 }
