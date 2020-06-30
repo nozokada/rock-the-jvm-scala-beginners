@@ -1,4 +1,4 @@
-package exercises.part2oop
+package exercises.part2oop.course16inheritance
 
 object AbstractDataTypes extends App {
   var list = new Cons(1, new Cons(2, new Cons(3, Empty)))
