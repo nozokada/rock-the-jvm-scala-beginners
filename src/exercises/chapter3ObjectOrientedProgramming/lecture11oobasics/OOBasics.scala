@@ -1,4 +1,4 @@
-package exercises.part2oop.course11oobasics
+package exercises.chapter3ObjectOrientedProgramming.lecture11oobasics
 
 object OOBasics extends App {
   val author = new Writer("Nozomi", "Okada", 1987)

@@ -1,4 +1,4 @@
-package exercises.part2oop.course22exceptions
+package exercises.chapter3ObjectOrientedProgramming.lecture22exceptions
 
 object Exceptions extends App {
 //  Crash your program with an OutOfMemoryError
