@@ -1,4 +1,4 @@
-package exercises.chapter4functionalProgramming.lecture32maps
+package exercises.chapter4FunctionalProgramming.lecture32maps
 
 object Maps extends App {
   var network = Map("Nozomi" -> List("Bob"))
