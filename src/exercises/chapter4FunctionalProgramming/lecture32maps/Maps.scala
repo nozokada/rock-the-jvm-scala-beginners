@@ -17,6 +17,10 @@ object Maps extends App {
 
   println(network)
 
+  unfriend("Nozomi", "Dan")
+
+  println(network)
+
   def addPerson(person: String): Unit = {
     val newPairing = person -> Set[String]()
     network += newPairing
@@ -27,11 +31,12 @@ object Maps extends App {
   }
 
   def addFriend(person: String, friend: String): Unit = {
-    network ++= network.filterKeys(key => key == person).mapValues(value => value ++ Set(friend))
-    network ++= network.filterKeys(key => key == friend).mapValues(value => value ++ Set(person))
+    network ++= network.filterKeys(key => key == person).mapValues(value => value + friend)
+    network ++= network.filterKeys(key => key == friend).mapValues(value => value + person)
   }
 
   def unfriend(person: String, friend: String): Unit = {
-
+    network ++= network.filterKeys(key => key == person).mapValues(value => value - friend)
+    network ++= network.filterKeys(key => key == friend).mapValues(value => value - person)
   }
 }
