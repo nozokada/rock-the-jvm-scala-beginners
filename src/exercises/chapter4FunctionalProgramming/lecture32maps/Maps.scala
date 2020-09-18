@@ -1,10 +1,11 @@
 package exercises.chapter4FunctionalProgramming.lecture32maps
 
 object Maps extends App {
-  var network = Map("Nozomi" -> Set("Bob"))
+  var network = Map[String, Set[String]]()
 
-  addPerson("Philipp")
+  addPerson("Nozomi")
   addPerson("Dan")
+  addPerson("Philipp")
 
   println(network)
 
@@ -12,14 +13,23 @@ object Maps extends App {
 
   println(network)
 
-  addFriend("Nozomi", "Dan")
-  addFriend("Nozomi", "Dan")
+  addPerson("Philipp")
 
   println(network)
 
-  unfriend("Nozomi", "Dan")
+  addFriend("Nozomi", "Dan")
+  addFriend("Dan", "Philipp")
+  addFriend("Philipp", "Nozomi")
 
   println(network)
+
+  unfriend("Nozomi", "Philipp")
+
+  println(network)
+
+  println(friendCount("Nozomi"))
+  println(getPersonWithMostFriends)
+  println(getPersonCountWithNoFriends)
 
   def addPerson(person: String): Unit = {
     val newPairing = person -> Set[String]()
@@ -39,4 +49,19 @@ object Maps extends App {
     network ++= network.filterKeys(key => key == person).mapValues(value => value - friend)
     network ++= network.filterKeys(key => key == friend).mapValues(value => value - person)
   }
+
+  def friendCount(person: String): Int = {
+    network.get(person).size
+  }
+
+  def getPersonWithMostFriends: (String, Set[String]) = {
+    network.maxBy(p => p._2.size)
+  }
+
+  def getPersonCountWithNoFriends: Int = {
+    network.count(p => p._2.isEmpty)
+  }
+
+//  def isConnected(person: String, person2: String): Boolean = {
+//  }
 }
