@@ -8,8 +8,8 @@ object OOBasics extends App {
   println(novel.isWrittenBy(anotherAuthor))
 
   val counter = new Counter
-  counter.increment.print
-  counter.increment.increment.increment.print
+  counter.increment.print()
+  counter.increment.increment.increment.print()
 }
 
 class Writer(firstName: String, surName: String, val year: Int) {
@@ -43,5 +43,5 @@ class Counter(val count: Int = 0) {
     else decrement.decrement(amount - 1)
   }
 
-  def print: Unit = println(count)
+  def print(): Unit = println(count)
 }
