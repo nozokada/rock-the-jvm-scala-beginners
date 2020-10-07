@@ -1,4 +1,4 @@
-package exercises.chapter4FunctionalProgramming.lecture26hofs
+package exercises.chapter4.lecture26
 
 object HOFs extends App {
   val list = new Cons(1, new Cons(2, new Cons(3, Empty)))

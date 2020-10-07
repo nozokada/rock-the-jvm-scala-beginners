@@ -1,4 +1,4 @@
-package exercises.chapter4FunctionalProgramming.lecture32maps
+package exercises.chapter4.lecture32
 
 object Maps extends App {
   var network = Map[String, Set[String]]()

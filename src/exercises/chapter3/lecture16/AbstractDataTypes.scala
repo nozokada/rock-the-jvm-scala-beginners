@@ -1,4 +1,4 @@
-package exercises.chapter3ObjectOrientedProgramming.lecture16inheritance
+package exercises.chapter3.lecture16
 
 object AbstractDataTypes extends App {
   var list = new Cons(1, new Cons(2, new Cons(3, Empty)))

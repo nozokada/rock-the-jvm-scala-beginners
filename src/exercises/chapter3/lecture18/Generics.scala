@@ -1,4 +1,4 @@
-package exercises.chapter3ObjectOrientedProgramming.lecture18generics
+package exercises.chapter3.lecture18
 
 object Generics extends App {
   val list = new Cons("1", new Cons("2", new Cons("3", Empty)))
